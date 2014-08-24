@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/users/enseig/brejon/.gnome2_private'
+let g:netrw_dirhist_2='/users/enseig/brejon/.config/gnome-session/saved-session'
+let g:netrw_dirhist_3='/users/enseig/brejon/.themes'
+let g:netrw_dirhist_4='/users/enseig/brejon/soclibNgiet_vm'
+let g:netrw_dirhist_5='/etc/X11/xorg.conf.d'
+let g:netrw_dirhist_6='/users/enseig/brejon/.vim/autoload'
+let g:netrw_dirhist_7='/users/enseig/brejon/.vim'
