@@ -25,7 +25,7 @@ set hlsearch
 set nu
 
 set backspace=2   "normal backspace
-set tabstop=8     " 4 spaces = 1 tab
+set tabstop=8     " 8 spaces = 1 tab
 set softtabstop=8
 set shiftwidth=8  " number of space char inserted for indent
 set expandtab     " replace tab by spaces
@@ -33,7 +33,7 @@ set mouse=nv      " mouse enable for normal and visual mode
 
 set tags=./tags,./TAGS,tags;,TAGS,../../../tags;
 
-filetyp indent on
+filetype indent on
 
 "wraped line"
 noremap <buffer> <silent> <Up> gk
@@ -55,7 +55,7 @@ let generate_tags=1
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 " remove all tabs and replace cursor to the position it was before pressing F2
-map <F2> :mark k<CR>H :mark l<CR>:%s/\t/    /g<CR>`lzt`k<ESC>
+map <F2> :mark k<CR>H :mark l<CR>:%s/\t/        /g<CR>`lzt`k<ESC><CR>:nohlsearch<CR>
 
 call pathogen#infect()
 
@@ -66,16 +66,21 @@ colorscheme solarized
 
 
 " Commenting blocks of code.
-autocmd FileType c,cpp,java,scala               let b:comment_leader = '//'
-autocmd FileType sh,zsh,zsh-theme,python        let b:comment_leader = '#'
-autocmd FileType make,md                        let b:comment_leader = '#'
-autocmd FileType conf,fstab                     let b:comment_leader = '#'
-autocmd FileType tex                            let b:comment_leader = '%'
-autocmd FileType mail                           let b:comment_leader = '>'
-autocmd FileType vim                            let b:comment_leader = '"'
-autocmd FileType vhdl,vhd                       let b:comment_leader = '--'
+
+augroup comment_type
+        autocmd!
+        autocmd FileType c,cpp,java,scala               let b:comment_leader = '//'
+        autocmd FileType sh,zsh,zsh-theme,python        let b:comment_leader = '#'
+        autocmd FileType make,md                        let b:comment_leader = '#'
+        autocmd FileType conf,fstab                     let b:comment_leader = '#'
+        autocmd FileType tex                            let b:comment_leader = '%'
+        autocmd FileType mail                           let b:comment_leader = '>'
+        autocmd FileType vim                            let b:comment_leader = '"'
+        autocmd FileType vhdl,vhd                       let b:comment_leader = '--'
+augroup END
 
 noremap <silent> <C-d> : <C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+"noremap <silent> <C-e> : <C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 "toggle tlise mapping
 map <F6> :TlistToggle<CR>
@@ -111,7 +116,7 @@ au BufRead,BufNewFile *.tex set runtimepath=~/.vim/bundle
 au BufRead,BufNewFile *.tex set spelllang=fr spell
 
 "let $GROFF_NO_SGR=1
-"source $VIMRUNTIME/ftplugin/man.vim
+"#source $VIMRUNTIME/ftplugin/man.vim
 source ~/.vim/bundle/man.vim
 nnoremap <silent>K :<C-U>exe "Man" v:count "<cword>"<CR>
 
@@ -128,6 +133,7 @@ au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
 au BufRead * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 au BufRead,BufNewFile *.zsh-theme set filetype=zsh
 
+map <F3> :call matchdelete(m1)<CR>
 
 set completeopt-=preview
 
