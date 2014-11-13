@@ -25,6 +25,8 @@ set title
 filetype indent on
 syntax enable
 
+map <S-Up> gk <Left>
+map <S-Down> gj <Left>
 "wraped line"
 noremap <buffer> <silent> <Up> gk
 noremap <buffer> <silent> <Down> gj
@@ -37,8 +39,6 @@ inoremap <buffer> <silent> <Home> <C-o>g<Home>
 inoremap <buffer> <silent> <End> <C-o>g<End>
 
 "maps
-map <S-Up>      <Up>    
-map <S-Down>    <Down>  
 "map <C-M> g<C-]>    
 map ^M ^]    
 map ^? ^T    
