@@ -1,3 +1,4 @@
+/bin/rm -r ~/backup_zshv
 mkdir ~/backup_zshv
 
 mv ~/.vim* ~/backup_zshv
@@ -16,7 +17,5 @@ echo "cp"
 
 ./gnome-terminal-colors-solarized/set_alternative_dark.sh
 echo "bg set"
-chsh -s $(which zsh)
-echo "zsh set"
 
 echo "done"
