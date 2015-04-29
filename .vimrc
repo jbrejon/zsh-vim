@@ -21,8 +21,15 @@ set hlsearch
 set foldcolumn=4        " rec level
 set title
 
+"persistent undo
+set undofile                " Save undo's after file closes
+set undodir=$HOME/.vim/undo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+
 filetype indent on
 syntax enable
+
 
 "wraped line"
 noremap <buffer> <silent> <Up> gk
@@ -36,8 +43,8 @@ inoremap <buffer> <silent> <Home> <C-o>g<Home>
 inoremap <buffer> <silent> <End> <C-o>g<End>
 
 "maps
-map <S-Up>      <Up>    
-map <S-Down>    <Down>  
+map <S-Up> gk <Left>
+map <S-Down> gj <Left>
 "map <C-M> g<C-]>    
 map ^M ^]    
 map ^? ^T    
@@ -113,8 +120,9 @@ augroup END
 
 augroup latex_group
         autocmd!
-        autocmd BufRead,BufNewFile *.tex set runtimepath=~/.vim/bundle
+"        autocmd BufRead,BufNewFile *.tex set runtimepath=~/.vim/bundle
         autocmd BufRead,BufNewFile *.tex set spelllang=fr spell
+        autocmd BufRead,BufNewFile *.tex set filetype=tex
 augroup END
 
 augroup folds_setup
