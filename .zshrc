@@ -27,7 +27,7 @@ fi
 
 #export TERM=xterm
 export TERMINAL=urxvt
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+export PATH="/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/users/enseig/brejon/localinstall/bin"
 export PATH=/users/enseig/brejon/localinstall/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -92,6 +92,7 @@ export GREP_COLOR="1;4;32"
 
 # aliases
 
+alias grep="grep --exclude={tags,\"*dump*\",\"*.o\",\"*.elf\"} -n"
 alias tree="tree -Cr"
 alias sl="ls --color"
 alias la="ls -a --color"
