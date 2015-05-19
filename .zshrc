@@ -25,8 +25,8 @@ else
         fi
 fi
 
-export TERM=xterm
-export TERMINAL=xterm
+#export TERM=xterm
+export TERMINAL=urxvt
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
 export PATH=/users/enseig/brejon/localinstall/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
