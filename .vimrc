@@ -92,6 +92,7 @@ au BufRead,BufNewFile * normal zR
 
 "status line
 set statusline=[%f]                                " file name
+set statusline+=%m
 set statusline+=\ %#todo#                          " todo highligths
 set statusline+=%(%{Tlist_Get_Tagname_By_Line()}%) " function name
 set statusline+=%*                                 " normal highlight
